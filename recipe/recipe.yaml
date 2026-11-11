@@ -1,6 +1,6 @@
 context:
   name: pyearth
-  version: "0.2.4"
+  version: "0.2.5"
 
 package:
   name: ${{ name|lower }}
@@ -8,33 +8,31 @@ package:
 
 source:
   url: https://github.com/changliao1025/pyearth/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: d8136c35b650fd8109c3af47c3e818d8e5a9489b0ef3ba25f5343d3ca96729c7
+  sha256: 2eb6e9105f0bb0cc9223627831f6f4f64475e717c5f52262c3e8003b41fbaf12
 
 build:
-  number: 1
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
-  skip:
-    - win and vc<14
+  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
     - ${{ stdlib("c") }}
     - ${{ compiler('c') }}
-    - cython >=0.29.0
     - if: build_platform != target_platform
       then:
         - python
         - cross-python_${{ target_platform }}
+        - cython
         - numpy
   host:
     - pip
     - python
     - setuptools
+    - wheel
     - numpy
     - cython >=0.29.0
   run:
     - python
-    - ${{ pin_compatible('numpy') }}
     - gdal
     - netcdf4
     - pandas
