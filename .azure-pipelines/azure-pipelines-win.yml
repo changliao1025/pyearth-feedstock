@@ -19,6 +19,8 @@ jobs:
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
         vm_image: windows-2022
+      win_64_python3.11.____cpython:
+        CONFIG: win_64_python3.11.____cpython
       win_64_python3.12.____cpython:
         CONFIG: win_64_python3.12.____cpython
         UPLOAD_PACKAGES: 'True'
@@ -30,6 +32,8 @@ jobs:
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
         vm_image: windows-2022
+      win_64_python3.12.____cpython:
+        CONFIG: win_64_python3.12.____cpython
       win_64_python3.13.____cp313:
         CONFIG: win_64_python3.13.____cp313
         UPLOAD_PACKAGES: 'True'
@@ -41,6 +45,8 @@ jobs:
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
         vm_image: windows-2022
+      win_64_python3.15.____cp315:
+        CONFIG: win_64_python3.15.____cp315
       win_64_python3.14.____cp314:
         CONFIG: win_64_python3.14.____cp314
         UPLOAD_PACKAGES: 'True'
@@ -52,6 +58,8 @@ jobs:
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
         vm_image: windows-2022
+      win_64_python3.9.____cpython:
+        CONFIG: win_64_python3.9.____cpython
       win_64_python3.15.____cp315:
         CONFIG: win_64_python3.15.____cp315
         UPLOAD_PACKAGES: 'True'
