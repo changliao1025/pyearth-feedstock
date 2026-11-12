@@ -11,7 +11,7 @@ source:
   sha256: 2eb6e9105f0bb0cc9223627831f6f4f64475e717c5f52262c3e8003b41fbaf12
 
 build:
-  number: 0
+  number: 1
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
@@ -22,7 +22,7 @@ requirements:
       then:
         - python
         - cross-python_${{ target_platform }}
-        - cython
+        - cython >=3.0
         - numpy
   host:
     - pip
@@ -30,7 +30,7 @@ requirements:
     - setuptools
     - wheel
     - numpy
-    - cython >=0.29.0
+    - cython >=3.0
   run:
     - python
     - gdal
