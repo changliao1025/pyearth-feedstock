@@ -12,29 +12,27 @@ source:
 
 build:
   number: 0
-  script: ${{ PYTHON }} -m pip install . -vv --no-deps --ignore-installed
-  skip:
-    - win and vc<14
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
     - ${{ stdlib("c") }}
     - ${{ compiler('c') }}
-    - cython >=0.29.0
     - if: build_platform != target_platform
       then:
         - python
         - cross-python_${{ target_platform }}
+        - cython
         - numpy
   host:
     - pip
     - python
     - setuptools
+    - wheel
     - numpy
     - cython >=0.29.0
   run:
     - python
-    - ${{ pin_compatible('numpy') }}
     - gdal
     - netcdf4
     - pandas
